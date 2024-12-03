@@ -13,6 +13,10 @@ export class LabsComponent {
   welcome = 'hola!';
   
   colorCtrl = new FormControl();
+  widthCtrl = new FormControl(50, {
+    nonNullable: true,
+  });
+
   constructor() {
     this.colorCtrl.valueChanges.subscribe(value => {
       console.log(value);
