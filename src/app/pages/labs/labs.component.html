@@ -74,7 +74,7 @@
 
   <hr />
   <input type="text" [formControl]="nameCtrl"> <br />
-  <span class="message-error" *ngIf="nameCtrl.invalid && nameCtrl.touched">Nombre invalido</span>
+  <span class="message-error" [class.show]="nameCtrl.invalid && nameCtrl.touched">Nombre invalido</span>
   <p>
     <input type="text">
   </p>
