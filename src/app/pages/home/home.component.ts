@@ -69,6 +69,37 @@ export class HomeComponent {
     })
   }
 
+  updateTaskEditingMode(index: number) {
+    this.tasks.update((tasks) => {
+      return tasks.map((task, postition) => {
+        if(postition === index) {
+          return {
+            ...task,
+            editing: true
+          }
+        }
+        return {
+          ...task,
+          editing: false
+        };
+      })
+    })
+  }
+
+  updateTaskText(index: number, event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.tasks.update((tasks) => {
+      return tasks.map((task, postition) => {
+        if(postition === index) {
+          return {
+            ...task,
+            title: input.value
+          }
+        }
+        return task;
+      })
+    })
+  }
 
 
 }
