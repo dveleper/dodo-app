@@ -1,8 +1,12 @@
-.container {
+.container{
     padding: 3rem;
 }
-.box {
+.box{
     height: 10px;
     display: block;
     background-color: red;
+}
+.message-error{
+    background-color: red;
+    color: white;
 }

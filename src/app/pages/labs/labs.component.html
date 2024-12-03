@@ -71,4 +71,11 @@
   
   <input type="number" [formControl]="widthCtrl">
   <span class="box" [style.width.px]="widthCtrl.value"></span>
+
+  <hr />
+  <input type="text" [formControl]="nameCtrl"> <br />
+  <span class="message-error" *ngIf="nameCtrl.invalid && nameCtrl.touched">Nombre invalido</span>
+  <p>
+    <input type="text">
+  </p>
 </div>
