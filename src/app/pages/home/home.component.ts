@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { signal } from '@angular/core';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms'; 
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { task } from './../../models/task.mode';
 
 @Component({
@@ -22,8 +22,13 @@ export class HomeComponent {
       id: Date.now(),
       title: 'Crear componentes',
       completed: false
+    },
+    {
+      id: Date.now(),
+      title: 'Diego',
+      completed: false
     }
-  ]); 
+  ]);
 
   newTaskCtrl = new FormControl('', {
     nonNullable: true,

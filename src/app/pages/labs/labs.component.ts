@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { signal } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-labs',
@@ -11,7 +11,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class LabsComponent {
   welcome = 'hola!';
-  
+
   colorCtrl = new FormControl();
   constructor() {
     this.colorCtrl.valueChanges.subscribe(value => {
@@ -72,7 +72,7 @@ export class LabsComponent {
   }
 
 
-  
+
 
 
 }
