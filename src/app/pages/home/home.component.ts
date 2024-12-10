@@ -22,6 +22,11 @@ export class HomeComponent {
       id: Date.now(),
       title: 'Crear componentes',
       completed: false
+    },
+    {
+      id: Date.now(),
+      title: 'Diego',
+      completed: false
     }
   ]); 
 
