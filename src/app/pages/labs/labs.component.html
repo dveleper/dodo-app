@@ -29,6 +29,7 @@
       {{ i }} {{ task }}
     </li>
   </ul>
+
   <div [ngSwitch]="tasks().length">
     <p *ngSwitchCase="1">total: {{ tasks().length }} item</p>
     <p *ngSwitchDefault>total: {{ tasks().length }} items</p>
@@ -79,5 +80,41 @@
       <rect x="0" y="0" height="100" width="100" [attr.fill]="colorCtrl.value"/>
     </g>
   </svg>
+<h2>Nuevo for</h2>
+  <ul>
+    @for (task of tasks(); track task; let i = $index) {
+      <li>
+        {{ i }} {{ task }}
+      </li>
+    } @empty {
+      <li><strong>la lista esta vacia</strong></li>
+    }
+  </ul>
+
+  <div [ngSwitch]="person().name">
+    <p *ngSwitchCase="'Diego'">Yo soy Diego</p>
+    <p *ngSwitchCase="'nicolas'">Yo soy nicolas</p>
+    <p *ngSwitchCase="'armando'">Yo soy armando</p>
+    <p *ngSwitchDefault>No cumplio que ningun nombre permitido</p>
+  </div>
+  <h2>Nuevo switch</h2>
+  <div> 
+    @switch (person().name) {
+      @case ('Diego') {
+        <p>Yo soy Diego</p>
+      }
+      @case ('nicolas') {
+        <p>Yo soy nicolas</p>
+      }
+      @case ('armando') {
+        <p>Yo soy armando</p>
+      }
+      @default {
+        <p>No cumplio que ningun nombre permitido</p>
+      }
+    
+    }
+  </div>
+ 
 
 </div>
