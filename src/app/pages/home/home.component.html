@@ -63,9 +63,9 @@
       <footer class="footer">
         <!-- This should be `0 items left` by default -->
         <span class="todo-count">
-          <strong>{{ tasksByFilter().length }}</strong> items
-          <span></span>
-
+          <strong>{{ tasksByFilter().length }}</strong> 
+          <span *ngIf="tasksByFilter().length === 1; else elseBlock"> item</span>
+          <ng-template #elseBlock> items</ng-template>
         </span>
         <!-- Remove this if you don't implement routing -->
         <ul class="filters">
