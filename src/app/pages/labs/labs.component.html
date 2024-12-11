@@ -38,17 +38,29 @@
     My Content
   </div>
   <div *ngIf="person().name === 'Diego'">
-    My Content signals
+    Soy Diego ngIf
   </div>
+  @if (person().name === 'Diego') {
+    <div>Soy Diego nueva sintaxis</div>
+  }
   <input type="number" [value]="person().age" (change)="changeAgeHandler($event)">
   <br>
+
   <div *ngIf="person().name === 'Diego' && person().age > 18 else elseBock" >
     Soy {{ person().name }} y soy mayor de 18 años
   </div>
-  
+
   <ng-template #elseBock>
     Soy {{ person().name }} y soy menor de 18 años
   </ng-template>
+
+  @if (person().name === 'Diego' && person().age > 18) {
+    <div>Soy {{ person().name }} y soy mayor de 18 años nueva sintaxis</div>
+  } @else {
+    <div>Soy {{ person().name }} y soy menor de 18 años nueva sintaxis</div>
+  }
+  
+  
 
 
   <hr />
