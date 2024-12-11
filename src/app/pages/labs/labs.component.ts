@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-labs',
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './labs.component.html',
   styleUrl: './labs.component.css'
 })
@@ -36,7 +36,7 @@ export class LabsComponent {
     avatar: 'https://w3schools.com/howto/img_avatar.png'
   });
 
-  clickHandler(){
+  clickHandler() {
     alert('hola')
   }
 
@@ -48,7 +48,7 @@ export class LabsComponent {
         ...prevstate,
         name: newValue
       }
-  });
+    });
     console.log(newValue);
   }
 
@@ -56,10 +56,10 @@ export class LabsComponent {
     const input = event.target as HTMLInputElement;
     const newValue = input.value;
     this.person.update(prevstate => {
-        return {
-          ...prevstate,
-          age: parseInt(newValue, 10)
-        }
+      return {
+        ...prevstate,
+        age: parseInt(newValue, 10)
+      }
     });
     console.log(newValue);
   }

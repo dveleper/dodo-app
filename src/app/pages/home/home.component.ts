@@ -1,12 +1,12 @@
 import { Component, computed, effect, inject, Injector } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { task } from './../../models/task.mode';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -18,10 +18,10 @@ export class HomeComponent {
   tasksByFilter = computed(() => {
     const filter = this.filter();
     const tasks = this.tasks();
-    if(filter === 'completed') {
+    if (filter === 'completed') {
       return tasks.filter(task => task.completed);
     }
-    if(filter === 'pending') {
+    if (filter === 'pending') {
       return tasks.filter(task => !task.completed);
     }
     return tasks;
@@ -38,7 +38,7 @@ export class HomeComponent {
 
   ngOnInit() {
     const storage = localStorage.getItem('tasks');
-    if(storage) {
+    if (storage) {
       const tasks = JSON.parse(storage);
       this.tasks.set(tasks);
     }
@@ -54,9 +54,9 @@ export class HomeComponent {
   }
 
   changHandler() {
-    if(this.newTaskCtrl.valid) {
+    if (this.newTaskCtrl.valid) {
       const value = this.newTaskCtrl.value.trim();
-      if(value !== '') {
+      if (value !== '') {
         this.addTask(value);
         this.newTaskCtrl.setValue('');
       }
@@ -79,7 +79,7 @@ export class HomeComponent {
   updateTask(index: number) {
     this.tasks.update((tasks) => {
       return tasks.map((task, postition) => {
-        if(postition === index) {
+        if (postition === index) {
           return {
             ...task,
             completed: !task.completed
@@ -93,7 +93,7 @@ export class HomeComponent {
   updateTaskEditingMode(index: number) {
     this.tasks.update(prevState => {
       return prevState.map((task, postition) => {
-        if(postition === index) {
+        if (postition === index) {
           return {
             ...task,
             editing: true
@@ -111,7 +111,7 @@ export class HomeComponent {
     const input = event.target as HTMLInputElement;
     this.tasks.update(prevState => {
       return prevState.map((task, postition) => {
-        if(postition === index) {
+        if (postition === index) {
           return {
             ...task,
             title: input.value,
